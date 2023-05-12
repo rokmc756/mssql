@@ -5,7 +5,7 @@ This playbook is intended to deploy/install MS SQL Server easily.
 This playbook was just cloned from the following repository and it's just replaced with different directory based ansible role cusotmized by me to use make command in my environment.
 https://github.com/linux-system-roles/mssql
 
-## Supported Oracle Database, Platform and OS
+## Supported MS SQL Server, Platform and OS
 Virtual Machines\
 Cloud Infrastructure\
 Baremetal\
@@ -32,7 +32,7 @@ $ sudo yum install sshpass
 ## Prepareing OS
 Configure Yum / Local & EPEL Repostiory
 
-## Download / configure / run oracle playbook
+## Download / configure / run mssql playbook
 * Clone mssql playbook into your local machine
 ~~~
 $ git clone https://github.com/rokmc756/mssql
@@ -58,7 +58,7 @@ remote_machine_username="jomoon"     # Replace with username of sudo user
 remote_machine_password="changeme"   # Replace with password of sudo user
 
 [databases]
-rk8-mssql ansible_ssh_host=192.168.0.189    # Change IP address of oracle host
+rk8-mssql ansible_ssh_host=192.168.0.189    # Change IP address of mssql host
 ~~~
 
 * Set variables for version, password, edition and so on
@@ -86,7 +86,7 @@ mssql_install_powershell: true
 $ vi setup-hosts.yml
 ---
 ---
-- hosts: rk8-single-db
+- hosts: rk8-mssql
   gather_facts: true
   become: yes
   vars:
